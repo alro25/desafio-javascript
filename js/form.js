@@ -8,7 +8,7 @@ class contato {
         this.telefone = telefone;
         this.tipo = tipo;
         this.mensagem = mensagem;
-    }
+        }
 }
 
 function Post(form) {
@@ -24,6 +24,6 @@ function Post(form) {
 
     alert(`Obrigado, ${data.nome}! Sua menssagem de ${data.tipo} foi enviada com sucesso.`);
 
-    form.resert ();
+    form.reset ();
   
 }
