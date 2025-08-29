@@ -8,48 +8,22 @@ class contato {
         this.telefone = telefone;
         this.tipo = tipo;
         this.mensagem = mensagem;
-        this.aceitouTermos = aceitouTermos;
-        this.aceitouNewsletter = aceitouNewsletter;
         }
 }
 
-function validarEnvio() {
-    const termosCheckbox = document.getElementById("termosCheckbox");
-    const enviarBtn = document.getElementById("enviarBtn");
-
-    enviarBtn.disabled = !termosCheckbox.checked;
-}
-
 function Post(form) {
-
-    const termosCheckbox = document.getElementById("termosCheckbox");
-    const newsletterCheckbox = document.getElementById("newsletterCheckbox");
-
-    if(!termosCheckbox.checked) {
-        alert("Por favor, aceite os termos e condições para enviar o formulário.")
-        return false;
-    }
 
   let data = new contato(
         form.elements.namedItem("nome").value, 
         form.elements.namedItem("email").value, 
         form.elements.namedItem("telefone").value, 
         form.elements.namedItem("tipo").value,
-        form.elements.namedItem("mensagem").value,
-        termosCheckbox.checked,
-        newsletterCheckbox.checked);
+        form.elements.namedItem("mensagem").value);
 
     console.log("Dados do formulário:", data);
 
     alert(`Obrigado, ${data.nome}! Sua menssagem de ${data.tipo} foi enviada com sucesso.`);
 
-    termosCheckbox.checked = false;
-    newsletterCheckbox.checked = false;
-
     form.reset ();
   
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    validarEnvio();
-})
